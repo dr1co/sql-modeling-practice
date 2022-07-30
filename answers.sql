@@ -61,8 +61,8 @@ CREATE TABLE "creditCards" (
     "name" VARCHAR(60) NOT NULL,
     "number" INTEGER NOT NULL UNIQUE,
     "securityCode" INTEGER NOT NULL,
-    "expirationMonth" MONTHNAME(CURDATE()),
-    "expirationYear" YEAR(CURDATE()),
+    "expirationMonth" INTEGER NOT NULL,
+    "expirationYear" INTEGER NOT NULL,
     "password" VARCHAR(60) NOT NULL,
     "limit" INTEGER NOT NULL,
 )
