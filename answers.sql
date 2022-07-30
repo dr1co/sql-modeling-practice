@@ -3,7 +3,7 @@ CREATE DATABASE "bankAccounts";
 CREATE TABLE "customers" (
     "id" SERIAL PRIMARY KEY,
     "fullName" VARCHAR(60) NOT NULL,
-    "cpf" INTEGER NOT NULL UNIQUE,
+    "cpf" VARCHAR(11) NOT NULL UNIQUE,
     "email" VARCHAR(60) NOT NULL,
     "password" VARCHAR(60) NOT NULL,
 )
@@ -25,14 +25,14 @@ CREATE TABLE "customerAddresses" (
     "street" VARCHAR(60) NOT NULL,
     "number" INTEGER NOT NULL,
     "complement" VARCHAR(40),
-    "postalCode" INTEGER NOT NULL UNIQUE,
+    "postalCode" VARCHAR(8) NOT NULL UNIQUE,
     "cityId" INTEGER NOT NULL REFERENCES "cities"("id"),
 );
 
 CREATE TABLE "customersPhones" (
     "id" SERIAL PRIMARY KEY,
     "customerId" INTEGER NOT NULL REFERENCES "customers"("id"),
-    "number" INTEGER NOT NULL,
+    "number" VARCHAR(17) NOT NULL,
     "type" ENUM("mobile", "landline"),
 );
 
